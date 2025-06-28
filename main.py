@@ -86,24 +86,24 @@ plt.show()
 # ------------------------------
 plt.figure(figsize=(6, 4))
 sns.boxplot(x="coupon_used", y="delay_minutes", data=df, palette='coolwarm')
-plt.title("🎁 Delay by Coupon Use", fontsize=14)
+plt.title("Delay by Coupon Use", fontsize=14)
 plt.xlabel("Coupon Used")
 plt.ylabel("Delay (min)")
 plt.tight_layout()
 plt.show()
 
 # ------------------------------
-# 🧪 T-Test: Delay with/without Coupon
+#  T-Test: Delay with/without Coupon
 # ------------------------------
 coupon_delay = df[df['coupon_used'] == 'Yes']['delay_minutes']
 no_coupon_delay = df[df['coupon_used'] == 'No']['delay_minutes']
 t_stat, p_value = stats.ttest_ind(coupon_delay, no_coupon_delay)
 
-print("\n🧪 T-Test Result: Delay by Coupon Use")
+print("\n T-Test Result: Delay by Coupon Use")
 print(f"  T-Statistic: {t_stat:.3f}")
 print(f"  P-Value: {p_value:.4f}")
 if p_value < 0.05:
-    print("  ✅ Statistically significant difference in delay due to coupon.")
+    print("   Statistically significant difference in delay due to coupon.")
 else:
     print("  ❌ No significant difference in delay between groups.")
 
@@ -111,7 +111,7 @@ else:
 # 📈 Correlation
 # ------------------------------
 correlation = df['order_value'].corr(df['delay_minutes'])
-print(f"\n📈 Correlation between Order Value and Delay: {correlation:.3f}")
+print(f"\n Correlation between Order Value and Delay: {correlation:.3f}")
 
 # ------------------------------
 # Plot 6: Heatmap of Delay by Time of Day
@@ -121,7 +121,7 @@ heat_df = heat_df.loc[['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', '
 
 plt.figure(figsize=(12, 5))
 sns.heatmap(heat_df, cmap="YlGnBu", linewidths=0.5, linecolor='gray')
-plt.title("📊 Heatmap: Avg Delay by Day and Hour", fontsize=14)
+plt.title(" Heatmap: Avg Delay by Day and Hour", fontsize=14)
 plt.xlabel("Hour of Day")
 plt.ylabel("Day of Week")
 plt.tight_layout()
@@ -133,7 +133,7 @@ plt.show()
 df['is_weekend'] = df['day_of_week'].isin(['Saturday', 'Sunday'])
 plt.figure(figsize=(6, 4))
 sns.boxplot(x='is_weekend', y='delay_minutes', data=df, palette='Set2')
-plt.title("🗓️ Delay: Weekday vs Weekend", fontsize=14)
+plt.title(" Delay: Weekday vs Weekend", fontsize=14)
 plt.xlabel("Is Weekend?")
 plt.ylabel("Delay (min)")
 plt.xticks([0, 1], ['Weekday', 'Weekend'])
@@ -149,7 +149,7 @@ monthly_avg = df.groupby('month')['delay_minutes'].mean().reindex([
 
 plt.figure(figsize=(10, 4))
 sns.lineplot(x=monthly_avg.index, y=monthly_avg.values, marker='o', color='#0088CC')
-plt.title("📆 Seasonality: Monthly Average Delay", fontsize=14)
+plt.title(" Seasonality: Monthly Average Delay", fontsize=14)
 plt.xlabel("Month")
 plt.ylabel("Avg Delay (min)")
 plt.xticks(rotation=45)
