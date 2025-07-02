@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from scipy import stats
 
 sns.set_style("whitegrid")  
-plt.rcParams.update({'figure.autolayout': True})  # Better spacing
+plt.rcParams.update({'figure.autolayout': True})  
 
 # ------------------------------
 # Load and Clean Data
