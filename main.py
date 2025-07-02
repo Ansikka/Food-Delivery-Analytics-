@@ -11,7 +11,7 @@ plt.rcParams.update({'figure.autolayout': True})
 # Load and Clean Data
 # ------------------------------
 df = pd.read_csv("preorder_food_data.csv")
-df = df[df['delivery_status'].notnull()]  # Drop cancelled orders
+df = df[df['delivery_status'].notnull()] 
 
 # Convert datetime
 df['order_time'] = pd.to_datetime(df['order_time'])
