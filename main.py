@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy import stats
 
-sns.set_style("whitegrid")  # Clean background
+sns.set_style("whitegrid")  
 plt.rcParams.update({'figure.autolayout': True})  # Better spacing
 
 # ------------------------------
